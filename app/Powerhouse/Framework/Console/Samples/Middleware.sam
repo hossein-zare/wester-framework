@@ -1,0 +1,21 @@
+<?php
+
+    namespace App\Transit\Http\Middleware;
+
+    use Powerhouse\Interfaces\Middleware\MiddlewareInterface;
+    
+    class {:name} implements MiddlewareInterface
+    {
+
+        /**
+         * Handle HTTP Requests.
+         *
+         * @param  object  $request
+         * @return bool
+         */
+        public function handle($request)
+        {
+            return true;
+        }
+
+    }

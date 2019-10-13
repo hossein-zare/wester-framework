@@ -1,0 +1,28 @@
+<?php
+
+    namespace App\Transit\Providers\Services;
+
+    use Powerhouse\Interfaces\ServiceProvider\ServiceProviderInterface;
+
+    class {:name} implements ServiceProviderInterface
+    {
+
+        /**
+         * Boot services.
+         * 
+         * @return void
+         */
+        public function boot()
+        {
+            //
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function register()
+        {
+            //
+        }
+
+    }

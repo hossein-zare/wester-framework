@@ -1,0 +1,20 @@
+<?php
+
+    namespace Mails;
+
+    use Powerhouse\Mail\Mail;
+
+    class {:name} extends Mail
+    {
+
+    	/**
+    	 * Build a mail.
+    	 * 
+    	 * @return $this
+    	 */
+        public function build()
+        {
+            return $this;
+        }
+
+    }
