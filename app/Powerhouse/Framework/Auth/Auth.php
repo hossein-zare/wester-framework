@@ -1,22 +1,22 @@
 <?php
 
-	namespace Powerhouse\Auth;
+    namespace Powerhouse\Auth;
 
     use App\Transit\Providers\Services\AuthServiceProvider;
     use Models\User;
     use Models\AuthSession;
-	use Powerhouse\Support\Str;
-	use Powerhouse\Support\Collection;
+    use Powerhouse\Support\Str;
+    use Powerhouse\Support\Collection;
 
-	class Auth extends AuthServiceProvider
-	{
+    class Auth extends AuthServiceProvider
+    {
 
-		/**
-		 * The user's model.
-		 * 
-		 * @var \Powerhouse\Support\Collection
-		 */
-		protected static $user;
+        /**
+         * The user's model.
+         * 
+         * @var \Powerhouse\Support\Collection
+         */
+        protected static $user;
         
         /**
          * The authenticated user payload.
@@ -25,7 +25,7 @@
          */
         protected static $payload = null;
 
-		/**
+        /**
          * Create a new instance of Auth
          * 
          * @return void
@@ -36,26 +36,26 @@
             $this->lastActivity();
         }
 
-		/**
-		 * Set up routes.
-		 * 
-		 * @return bool
-		 */
-		public function setRoutes($route)
-		{
-			// Here we should check if the authentication system is active
-			if (! $this->isActive())
-				return false;
+        /**
+         * Set up routes.
+         * 
+         * @return bool
+         */
+        public function setRoutes($route)
+        {
+            // Here we should check if the authentication system is active
+            if (! $this->isActive())
+                return false;
             
-			// Now we're going to create a group for the routes
-			$routes = array_to_object($this->routes);
-			$group = [
-				'namespace' => 'Auth',
-				'prefix' => $this->prefix
-			];
+            // Now we're going to create a group for the routes
+            $routes = array_to_object($this->routes);
+            $group = [
+                'namespace' => 'Auth',
+                'prefix' => $this->prefix
+            ];
 
-			$route->group($group, function ($sub) use ($routes) {
-				// Login
+            $route->group($group, function ($sub) use ($routes) {
+                // Login
                 if (isset($routes->login)) {
                     $sub->get($routes->login, 'Login@form')->name('login');
                     $sub->post($routes->login, 'Login@process');
@@ -88,26 +88,26 @@
                 if (isset($routes->verify)) {
                     $sub->get($routes->verify, 'Verify@process')->name('verify');
                 }
-			});
-		}
+            });
+        }
 
-		/**
-		 * Determine whether the user is verified.
-		 * 
-		 * @return bool
-		 */
-		public function verified()
-		{
-			if (! $this->isActive())
-				return false;
+        /**
+         * Determine whether the user is verified.
+         * 
+         * @return bool
+         */
+        public function verified()
+        {
+            if (! $this->isActive())
+                return false;
 
-			if ($this->payload() !== false)
-				return true;
+            if ($this->payload() !== false)
+                return true;
 
-			if (cookie()->exists($this->cookie)) {
-				$payload = $this->getPayload();
+            if (cookie()->exists($this->cookie)) {
+                $payload = $this->getPayload();
 
-				// Check the database 
+                // Check the database 
                 $session = new AuthSession();
                 $session->select('users.*');
                 $session->where([
@@ -122,7 +122,7 @@
                     $this->setPayload($payload);
 
                     if ($this->user() === null)
-                    	$this->setUser($user);
+                        $this->setUser($user);
 
                     return true;
                 }
@@ -132,7 +132,7 @@
             }
 
             return false;
-		}
+        }
 
         /**
          * Log the user out also wipe all of the unauthorized signs.
@@ -224,36 +224,36 @@
             return $this->verificationRequired;
         }
 
-		/**
-		 * Determine whether the authentication system is active.
-		 * 
-		 * @return bool
-		 */
-		public function isActive()
-		{
-			return isset($this->routes);
-		}
+        /**
+         * Determine whether the authentication system is active.
+         * 
+         * @return bool
+         */
+        public function isActive()
+        {
+            return isset($this->routes);
+        }
 
-		/**
-		 * Get the user.
-		 * 
-		 * @return \Powerhouse\Support\Collection
-		 */
-		public function user()
-		{
-			return self::$user;
-		}
+        /**
+         * Get the user.
+         * 
+         * @return \Powerhouse\Support\Collection
+         */
+        public function user()
+        {
+            return self::$user;
+        }
 
-		/**
-		 * Set the user's model.
-		 * 
-		 * @param  \Powerhouse\Support\Collection  $collection
-		 * @return void
-		 */
-		public function setUser(Collection $collection)
-		{
-			self::$user = $collection;
-		}
+        /**
+         * Set the user's model.
+         * 
+         * @param  \Powerhouse\Support\Collection  $collection
+         * @return void
+         */
+        public function setUser(Collection $collection)
+        {
+            self::$user = $collection;
+        }
 
         /**
          * Get the remote payload.
@@ -273,50 +273,50 @@
             return $secret['payload'];
         }
 
-		/**
-		 * Get the local payload.
-		 * 
-		 * @return bool|string
-		 */
-		protected function payload()
-		{
-			if (self::$payload !== null)
-				return self::$payload;
+        /**
+         * Get the local payload.
+         * 
+         * @return bool|string
+         */
+        protected function payload()
+        {
+            if (self::$payload !== null)
+                return self::$payload;
 
-			return false;
-		}
+            return false;
+        }
 
-		/**
-		 * Set the loal payload
-		 * 
-		 * @param  string  $payload
-		 * @return void
-		 */
-		protected function setPayload($payload)
-		{
-			self::$payload = $payload;
-		}
+        /**
+         * Set the loal payload
+         * 
+         * @param  string  $payload
+         * @return void
+         */
+        protected function setPayload($payload)
+        {
+            self::$payload = $payload;
+        }
 
-		/**
-		 * Get the unsigned properties
-		 * 
-		 * @param  string  $name
-		 * @return \Powerhouse\Support\Collection
-		 */
-		public function __get($name)
-		{
-			return $this->user()->{$name};
-		}
+        /**
+         * Get the unsigned properties
+         * 
+         * @param  string  $name
+         * @return \Powerhouse\Support\Collection
+         */
+        public function __get($name)
+        {
+            return $this->user()->{$name};
+        }
 
-		/**
-		 * Get the unsigned methods
-		 * 
-		 * @param  string  $name
-		 * @return \Powerhouse\Support\Collection
-		 */
-		public function __call($method, $parameters)
-		{
-			return $this->user()->{$method}($parameters);
-		}
+        /**
+         * Get the unsigned methods
+         * 
+         * @param  string  $name
+         * @return \Powerhouse\Support\Collection
+         */
+        public function __call($method, $parameters)
+        {
+            return $this->user()->{$method}($parameters);
+        }
 
-	}
+    }
