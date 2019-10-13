@@ -1,0 +1,13 @@
+{
+    "name": "westerframework",
+    "type": "project",
+    "description": "PHP MVC Framework",
+    "keywords": [
+        "framework",
+        "wester"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2"
+    }
+}
