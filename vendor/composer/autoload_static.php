@@ -36,16 +36,11 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
         ),
     );
 
-    public static $classMap = array (
-        'App\\Models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInita3acc7d8350fa8627e6557f513da6a20::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita3acc7d8350fa8627e6557f513da6a20::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita3acc7d8350fa8627e6557f513da6a20::$classMap;
 
         }, null, ClassLoader::class);
     }
