@@ -1,0 +1,4 @@
+<?php
+
+// Run server
+// shell_exec("cd ./public && php -S localhost:8000");

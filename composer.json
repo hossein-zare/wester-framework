@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Powerhouse\\": "powerhouse/framework/",
+            "Fountain\\": "powerhouse/fountain/"
+        }
+    },
+    "require": {
+    }
+}
