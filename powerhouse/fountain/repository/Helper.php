@@ -6,7 +6,7 @@ class Helper
 {
 
     /**
-     * Repository.
+     * The repository.
      * 
      * @var array
      */
