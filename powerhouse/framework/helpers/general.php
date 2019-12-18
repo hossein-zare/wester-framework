@@ -5,6 +5,7 @@ use Fountain\Loader\Config;
 use Powerhouse\Routing\Router;
 use Powerhouse\Gate\Http;
 use Powerhouse\Gate\Http\Request;
+use Powerhouse\Gate\Http\Response;
 
 if (! function_exists('toObject')) {
     /**
@@ -73,5 +74,18 @@ if (! function_exists('request')) {
     function request()
     {
         return Repository::get(Request::class);
+    }
+}
+
+if (! function_exists('response')) {
+    /**
+     * Create a response instance.
+     * 
+     * @param  string  $section
+     * @return Powerhouse\Gate\Http\Response
+     */
+    function response()
+    {
+        return Repository::get(Response::class);
     }
 }

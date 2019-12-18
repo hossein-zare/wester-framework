@@ -13,7 +13,7 @@ class Find
     public function serve()
     {
         // self::$routes[0]['func']();
-        var_dump(request()->isAjax());
+        var_dump(response()->status(201));
     }
 
 }

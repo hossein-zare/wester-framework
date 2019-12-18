@@ -18,11 +18,21 @@ class Methods
     /**
      * Get the request methods
      * 
-     * @return Powerhouse\Gate\Request
+     * @return Powerhouse\Gate\Http\Request
      */
     public function request()
     {
         return request();
+    }
+
+    /**
+     * Get the response methods
+     * 
+     * @return Powerhouse\Gate\Http\Response
+     */
+    public function response()
+    {
+        return response();
     }
 
 }

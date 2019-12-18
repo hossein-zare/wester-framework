@@ -38,7 +38,7 @@ class Request
      * @param  string  $name
      * @return string
      */
-    public function get($name)
+    public function get(string $name)
     {
         return $_GET[$name] ?? null;
     }
@@ -49,7 +49,7 @@ class Request
      * @param  string  $name
      * @return string
      */
-    public function post($name)
+    public function post(string $name)
     {
         return $_POST[$name] ?? null;
     }
@@ -60,7 +60,7 @@ class Request
      * @param  string  $name
      * @return string
      */
-    public function input($name)
+    public function input(string $name)
     {
         return self::$repository[$name] ?? null;
     }
@@ -71,7 +71,7 @@ class Request
      * @param  string  $name
      * @return string
      */
-    public function file($name)
+    public function file(string $name)
     {
         return $_FILES[$name] ?? null;
     }
@@ -93,7 +93,7 @@ class Request
      * @param  string  $name
      * @return string
      */
-    public function __get($name)
+    public function __get(string $name)
     {
         switch (http()->method()) {
             case 'GET':
