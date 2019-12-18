@@ -3,9 +3,10 @@
 namespace Powerhouse\Routing;
 
 use Powerhouse\Helpers\Traits\MagicCall;
+use Contracts\Helpers\Traits\MagicCallInterface;
 use Powerhouse\Routing\Mapper;
 
-class Router
+class Router implements MagicCallInterface
 {
     use MagicCall;
 
@@ -24,7 +25,7 @@ class Router
      * 
      * @return Powerhouse\Routing\Mapper
      */
-    protected function createCaller()
+    public function createCaller()
     {
         self::$call = new Mapper();
         return self::$call;

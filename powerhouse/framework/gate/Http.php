@@ -3,8 +3,9 @@
 namespace Powerhouse\Gate;
 
 use Powerhouse\Helpers\Traits\MagicCall;
+use Contracts\Helpers\Traits\MagicCallInterface;
 
-class Http
+class Http implements MagicCallInterface
 {
     use MagicCall;
 
@@ -21,7 +22,7 @@ class Http
      * 
      * @return Powerhouse\Gate\Http\Methods
      */
-    protected function createCaller()
+    public function createCaller()
     {
         self::$call = new Http\Methods();
         return self::$call;

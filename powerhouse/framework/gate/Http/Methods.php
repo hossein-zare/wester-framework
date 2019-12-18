@@ -16,13 +16,13 @@ class Methods
     }
 
     /**
-     * Define the method.
+     * Get the request methods
      * 
-     * @param  string  $method
+     * @return Powerhouse\Gate\Request
      */
-    public function from($method)
+    public function request()
     {
-        
+        return request();
     }
 
 }

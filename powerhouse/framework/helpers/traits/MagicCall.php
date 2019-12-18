@@ -13,6 +13,11 @@ trait MagicCall
     protected static $call;
 
     /**
+     * {@inheritdoc}
+     */
+    abstract public function createCaller();
+
+    /**
      * Call methods non-statically.
      * 
      * @param  string  $method
