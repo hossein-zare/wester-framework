@@ -21,7 +21,7 @@ class ExceptionHandler
         while (ob_get_level() > 0)
             ob_end_clean();
         
-        die($message . ' - '.$line);
+        die($message . ' - (<u>' . $file . '</u>) at line: <u>' . $line . '</u>');
 
         $this->showPage($severity, $message, $file, $line);
     }
@@ -39,7 +39,7 @@ class ExceptionHandler
         while (ob_get_level() > 0)
             ob_end_clean();
 
-        die($e->getMessage(). ' - '.$e->getLine());
+        die($e->getMessage() . ' - (<u>' . $e->getFile() . '</u>) at line: <u>' . $e->getLine() . '</u>');
 
         $this->showPage(1, $e->getMessage(), $e->getFile(), $e->getLine());
     }
