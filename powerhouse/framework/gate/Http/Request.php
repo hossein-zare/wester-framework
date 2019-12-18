@@ -77,27 +77,6 @@ class Request
     }
 
     /**
-     * Indicates whether the request is an ajax request.
-     * 
-     * @return bool
-     */
-    public function isAjax()
-    {
-        return ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
-                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-    }
-
-    /**
-     * Get the method name.
-     * 
-     * @return string
-     */
-    public function method()
-    {
-        return response()->get('REQUEST_METHOD');
-    }
-
-    /**
      * Get the http request variables.
      * 
      * @param  string  $name

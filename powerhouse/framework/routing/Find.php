@@ -2,6 +2,7 @@
 
 namespace Powerhouse\Routing;
 
+use Carbon\Carbon;
 use Powerhouse\Gate\Http;
 
 class Find
@@ -12,8 +13,10 @@ class Find
      */
     public function serve()
     {
-        // self::$routes[0]['func']();
-        var_dump(host('images/default.png'));
+        // foreach (static::$routes as $route) {
+        //     var_dump(http()->isApi($route['uri']));
+        // }
+        printf("Now: %s", Carbon::now());
     }
 
 }

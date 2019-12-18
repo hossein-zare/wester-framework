@@ -101,6 +101,42 @@ class Http
     }
 
     /**
+     * Indicates whether the request is an ajax request.
+     * 
+     * @return bool
+     */
+    public function isAjax()
+    {
+        return ! empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+    }
+
+    /**
+     * Indicates whether the request is an api request.
+     * 
+     * @param  string  $uri
+     * @return bool
+     */
+    public function isApi($uri = null)
+    {
+        $uri = trim($uri ?: $this->getRedirectUri(), '/');
+        if (substr($uri, 0, 3) === config()->app->api_prefix)
+            return true;
+
+        return false;
+    }
+
+    /**
+     * Get the method name.
+     * 
+     * @return string
+     */
+    public function method()
+    {
+        return response()->get('REQUEST_METHOD');
+    }
+
+    /**
      * Get the request methods
      * 
      * @return Powerhouse\Gate\Http\Request
