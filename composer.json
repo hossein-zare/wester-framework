@@ -1,0 +1,37 @@
+{
+    "name": "wester/wester",
+    "type": "project",
+    "description": "PHP MVC Framework",
+    "keywords": [
+        "framework",
+        "wester"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hossein Zare",
+            "email": "zarehossein.hz@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "wester": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.2"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "cd app & cd Console & @php app create:key"
+        ]
+    }
+}

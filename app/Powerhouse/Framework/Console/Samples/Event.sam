@@ -1,0 +1,21 @@
+<?php
+
+    namespace App\Transit\Events;
+
+    use Powerhouse\Event\Traits\Dispatchable;
+
+    class {:name}
+    {
+        use Dispatchable;
+
+        /**
+         * Create a new event instance.
+         *
+         * @return void
+         */
+        public function __construct()
+        {
+            //
+        }
+
+    }
