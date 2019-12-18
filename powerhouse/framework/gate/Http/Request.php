@@ -98,10 +98,8 @@ class Request
         switch (http()->method()) {
             case 'GET':
                 return $this->get($name);
-                break;
             case 'POST':
                 return $this->post($name);
-                break;
             default:
                 return $this->input($name);
         }
