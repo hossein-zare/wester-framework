@@ -1,18 +1,15 @@
 <?php
 
-namespace Powerhouse\Routing;
+namespace Powerhouse\Gate;
 
 use Powerhouse\Helpers\Traits\MagicCall;
-use Powerhouse\Routing\Mapper;
 
-class Router
+class Http
 {
     use MagicCall;
 
     /**
-     * Create a router instance.
-     * 
-     * @return void
+     * Create a new instance of Http.
      */
     public function __construct()
     {
@@ -22,11 +19,11 @@ class Router
     /**
      * Create a call.
      * 
-     * @return Powerhouse\Routing\Mapper
+     * @return Powerhouse\Gate\Http\Methods
      */
     protected function createCaller()
     {
-        self::$call = new Mapper();
+        self::$call = new Http\Methods();
         return self::$call;
     }
 

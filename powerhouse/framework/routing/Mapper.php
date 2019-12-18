@@ -5,7 +5,7 @@ namespace Powerhouse\Routing;
 use Exception;
 use Powerhouse\Helpers\ArrayHelper;
 
-class Mapper
+class Mapper extends Find
 {
 
     /**
@@ -386,12 +386,6 @@ class Mapper
         $data['namespace'] = trim($data['namespace'], '/');
 
         return $data;
-    }
-
-    public function serve()
-    {
-        // self::$routes[0]['func']();
-        var_dump(self::$routes);
     }
 
 }

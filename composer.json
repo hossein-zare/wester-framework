@@ -21,7 +21,8 @@
         "psr-4": {
             "App\\": "app/",
             "Powerhouse\\": "powerhouse/framework/",
-            "Fountain\\": "powerhouse/fountain/"
+            "Fountain\\": "powerhouse/fountain/",
+            "Interface\\": "powerhouse/interface/"
         }
     },
     "require": {

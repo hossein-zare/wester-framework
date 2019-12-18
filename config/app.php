@@ -10,4 +10,5 @@ return [
 
     // The api prefix
     'api_prefix' => 'api'
+
 ];

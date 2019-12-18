@@ -11,6 +11,10 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
         array (
             'Powerhouse\\' => 11,
         ),
+        'I' => 
+        array (
+            'Interface\\' => 10,
+        ),
         'F' => 
         array (
             'Fountain\\' => 9,
@@ -26,6 +30,10 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
         array (
             0 => __DIR__ . '/../..' . '/powerhouse/framework',
         ),
+        'Interface\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/powerhouse/interface',
+        ),
         'Fountain\\' => 
         array (
             0 => __DIR__ . '/../..' . '/powerhouse/fountain',
@@ -36,11 +44,29 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
         ),
     );
 
+    public static $classMap = array (
+        'Fountain\\Loader\\Config' => __DIR__ . '/../..' . '/powerhouse/fountain/loader/Config.php',
+        'Fountain\\Loader\\Loader' => __DIR__ . '/../..' . '/powerhouse/fountain/loader/Loader.php',
+        'Fountain\\Loader\\Tower' => __DIR__ . '/../..' . '/powerhouse/fountain/loader/Tower.php',
+        'Fountain\\Repository\\Repository' => __DIR__ . '/../..' . '/powerhouse/fountain/repository/Repository.php',
+        'Powerhouse\\Gate\\Http' => __DIR__ . '/../..' . '/powerhouse/framework/gate/Http.php',
+        'Powerhouse\\Gate\\Http\\Methods' => __DIR__ . '/../..' . '/powerhouse/framework/gate/Http/Methods.php',
+        'Powerhouse\\Gate\\Response' => __DIR__ . '/../..' . '/powerhouse/framework/gate/Response.php',
+        'Powerhouse\\Handlers\\ExceptionHandler' => __DIR__ . '/../..' . '/powerhouse/framework/handlers/ExceptionHandler.php',
+        'Powerhouse\\Helpers\\ArrayHelper' => __DIR__ . '/../..' . '/powerhouse/framework/helpers/ArrayHelper.php',
+        'Powerhouse\\Helpers\\Traits\\MagicCall' => __DIR__ . '/../..' . '/powerhouse/framework/helpers/traits/MagicCall.php',
+        'Powerhouse\\Routing\\Find' => __DIR__ . '/../..' . '/powerhouse/framework/routing/Find.php',
+        'Powerhouse\\Routing\\Mapper' => __DIR__ . '/../..' . '/powerhouse/framework/routing/Mapper.php',
+        'Powerhouse\\Routing\\Router' => __DIR__ . '/../..' . '/powerhouse/framework/routing/Router.php',
+        'Powerhouse\\Ruler\\Ruler' => __DIR__ . '/../..' . '/powerhouse/framework/ruler/Ruler.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInita3acc7d8350fa8627e6557f513da6a20::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita3acc7d8350fa8627e6557f513da6a20::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInita3acc7d8350fa8627e6557f513da6a20::$classMap;
 
         }, null, ClassLoader::class);
     }
