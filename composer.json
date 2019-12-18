@@ -2,6 +2,7 @@
     "name": "wester/wester",
     "type": "project",
     "description": "PHP MVC Framework",
+    "version": "v2.0",
     "license": "MIT",
     "authors": [
         {
