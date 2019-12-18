@@ -73,7 +73,11 @@ class Tower
      */
     public static function apiRoutes()
     {
-        require_once '../app/routes/api.php';
+        Router::group([
+            'uri' => config()->app->api_prefix
+        ], function () {
+            require_once '../app/routes/api.php';
+        });
     }
 
     /**
