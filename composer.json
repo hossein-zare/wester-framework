@@ -23,6 +23,6 @@
     },
     "require": {
         "php": "^7.2",
-        "wester/powerhouse": "^1.0"
+        "wester/powerhouse": "1.0.x-dev"
     }
 }
