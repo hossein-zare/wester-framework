@@ -155,7 +155,8 @@ class Mapper
             'context' => $data->context,
             'name' => null,
             'namespace' => $data->namespace,
-            'pattern' => []
+            'middleware' => $data->middleware,
+            'pattern' => $data->pattern
         ];
 
         return $this;
@@ -251,12 +252,26 @@ class Mapper
     /**
      * Set pattern to the route.
      * 
-     * @param  array  $pattern
+     * @param  array  $group
      * @return Powerhouse\Routing\Mapper
      */
-    public function pattern(array $pattern)
+    public function pattern(array $group)
     {
-        self::$routes[ArrayHelper::getLastIndex(self::$routes)]['pattern'] = $pattern;
+        self::$routes[ArrayHelper::getLastIndex(self::$routes)]['pattern'] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Add a new group of patterns to the route.
+     * 
+     * @param  array  $group
+     * @return Powerhouse\Routing\Mapper
+     */
+    public function addPattern(array $group)
+    {
+        $pattern = self::$routes[ArrayHelper::getLastIndex(self::$routes)]['pattern'];
+        self::$routes[ArrayHelper::getLastIndex(self::$routes)]['pattern'] = array_merge($pattern, $group);
 
         return $this;
     }
@@ -334,6 +349,8 @@ class Mapper
             'uri' => null,
             'locale' => null,
             'namespace' => null,
+            'middleware' => [],
+            'pattern' => [],
             'context' => []
         ];
 
@@ -349,6 +366,14 @@ class Mapper
             // Namespace
             if (isset($value['namespace']) && $value['namespace'] !== null)
                 $data['namespace'].= '/' . $value['namespace'];
+
+            // Middleware
+            if (isset($value['middleware']))
+                $data['middleware'] = array_merge($data['middleware'], $value['middleware']);
+
+            // Pattern
+            if (isset($value['pattern']))
+                $data['pattern'] = array_merge($data['pattern'], $value['pattern']);
 
             // Context
             if (! isset($this->groupConfiguration[$index]['wipeContext']) || $this->groupConfiguration[$index]['wipeContext'] !== true)
@@ -366,7 +391,7 @@ class Mapper
     public function serve()
     {
         // self::$routes[0]['func']();
-        // var_dump(self::$routes);
+        var_dump(self::$routes);
     }
 
 }
