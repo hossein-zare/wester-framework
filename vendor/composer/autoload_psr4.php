@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Powerhouse\\' => array($baseDir . '/powerhouse/framework'),
-    'Interface\\' => array($baseDir . '/powerhouse/interface'),
     'Fountain\\' => array($baseDir . '/powerhouse/fountain'),
+    'Contracts\\' => array($baseDir . '/powerhouse/contracts'),
     'App\\' => array($baseDir . '/app'),
 );

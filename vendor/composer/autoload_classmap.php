@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Contracts\\Helpers\\Traits\\MagicCallInterface' => $baseDir . '/powerhouse/contracts/helpers/traits/MagicCallInterface.php',
     'Fountain\\Loader\\Config' => $baseDir . '/powerhouse/fountain/loader/Config.php',
     'Fountain\\Loader\\Loader' => $baseDir . '/powerhouse/fountain/loader/Loader.php',
     'Fountain\\Loader\\Tower' => $baseDir . '/powerhouse/fountain/loader/Tower.php',

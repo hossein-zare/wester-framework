@@ -11,13 +11,13 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
         array (
             'Powerhouse\\' => 11,
         ),
-        'I' => 
-        array (
-            'Interface\\' => 10,
-        ),
         'F' => 
         array (
             'Fountain\\' => 9,
+        ),
+        'C' => 
+        array (
+            'Contracts\\' => 10,
         ),
         'A' => 
         array (
@@ -30,13 +30,13 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
         array (
             0 => __DIR__ . '/../..' . '/powerhouse/framework',
         ),
-        'Interface\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/powerhouse/interface',
-        ),
         'Fountain\\' => 
         array (
             0 => __DIR__ . '/../..' . '/powerhouse/fountain',
+        ),
+        'Contracts\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/powerhouse/contracts',
         ),
         'App\\' => 
         array (
@@ -45,6 +45,7 @@ class ComposerStaticInita3acc7d8350fa8627e6557f513da6a20
     );
 
     public static $classMap = array (
+        'Contracts\\Helpers\\Traits\\MagicCallInterface' => __DIR__ . '/../..' . '/powerhouse/contracts/helpers/traits/MagicCallInterface.php',
         'Fountain\\Loader\\Config' => __DIR__ . '/../..' . '/powerhouse/fountain/loader/Config.php',
         'Fountain\\Loader\\Loader' => __DIR__ . '/../..' . '/powerhouse/fountain/loader/Loader.php',
         'Fountain\\Loader\\Tower' => __DIR__ . '/../..' . '/powerhouse/fountain/loader/Tower.php',

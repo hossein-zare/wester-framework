@@ -23,7 +23,7 @@
             "App\\": "app/",
             "Powerhouse\\": "powerhouse/framework/",
             "Fountain\\": "powerhouse/fountain/",
-            "Interface\\": "powerhouse/interface/"
+            "Contracts\\": "powerhouse/contracts/"
         }
     },
     "require": {
