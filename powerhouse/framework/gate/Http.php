@@ -56,7 +56,7 @@ class Http
      */
     private function getPathPrefix()
     {
-        $occurrences = substr_count(self::$redirectUri, '/');
+        $occurrences = substr_count($this->getRedirectUri(), '/');
 
         $prefix = '.';
         for ($i = 0; $i < $occurrences; $i++)
@@ -66,25 +66,38 @@ class Http
     }
 
     /**
-     * Get the method name.
+     * Get the host.
      * 
      * @return string
      */
-    public function method()
+    private function getHost()
     {
-        return response()->get('REQUEST_METHOD');
+        $protocol = response()->get('HTTPS') ? 'https://' : 'http://';
+        return $protocol . response()->get('SERVER_NAME');
     }
 
     /**
-     * Get current path.
+     * Get the current path.
      * 
-     * @param  string  $name
+     * @param  string  $path
      * @return array
      */
-    public function path($name)
+    public function path($path)
     {
-        $name = trim($name, '/');
-        return self::$pathPrefix . "/{$name}";
+        $path = trim($path, '/');
+        return self::$pathPrefix . "/{$path}";
+    }
+
+    /**
+     * Get the current path with host.
+     * 
+     * @param  string  $path
+     * @return array
+     */
+    public function host($path = null)
+    {
+        $path = trim($path, '/');
+        return $this->getHost() . "/{$path}";
     }
 
     /**

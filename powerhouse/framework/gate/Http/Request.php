@@ -88,6 +88,16 @@ class Request
     }
 
     /**
+     * Get the method name.
+     * 
+     * @return string
+     */
+    public function method()
+    {
+        return response()->get('REQUEST_METHOD');
+    }
+
+    /**
      * Get the http request variables.
      * 
      * @param  string  $name

@@ -88,13 +88,26 @@ if (! function_exists('response')) {
 
 if (! function_exists('path')) {
     /**
-     * Get the path.
+     * Get the current path.
      * 
-     * @param  string  $name
+     * @param  string  $path
      * @return string
      */
-    function path($name)
+    function path($path)
     {
-        return http()->path($name);
+        return http()->path($path);
+    }
+}
+
+if (! function_exists('host')) {
+    /**
+     * Get the current path with host.
+     * 
+     * @param  string  $path
+     * @return string
+     */
+    function host($path = null)
+    {
+        return http()->host($path);
     }
 }
