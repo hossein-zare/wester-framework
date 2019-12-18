@@ -12,7 +12,7 @@
     $config['fallback_locale'] = 'en';
     
     // Application Key
-    $config['key'] = '(PXLzl3bEeIs2SRH'; // Required...!
+    $config['key'] = ''; // Required...!
     
     // Debug mode
     $config['debug'] = true;
