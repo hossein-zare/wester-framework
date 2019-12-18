@@ -42,7 +42,6 @@ if (! function_exists('router')) {
     /**
      * Create a router instance.
      * 
-     * @param  string  $section
      * @return Powerhouse\Routing\Router
      */
     function router()
@@ -55,7 +54,6 @@ if (! function_exists('http')) {
     /**
      * Create a http instance.
      * 
-     * @param  string  $section
      * @return Powerhouse\Gate\Http
      */
     function http()
@@ -68,7 +66,6 @@ if (! function_exists('request')) {
     /**
      * Create a http instance.
      * 
-     * @param  string  $section
      * @return Powerhouse\Gate\Http\Request
      */
     function request()
@@ -81,11 +78,23 @@ if (! function_exists('response')) {
     /**
      * Create a response instance.
      * 
-     * @param  string  $section
      * @return Powerhouse\Gate\Http\Response
      */
     function response()
     {
         return Repository::get(Response::class);
+    }
+}
+
+if (! function_exists('path')) {
+    /**
+     * Get the path.
+     * 
+     * @param  string  $name
+     * @return string
+     */
+    function path($name)
+    {
+        return http()->path($name);
     }
 }
