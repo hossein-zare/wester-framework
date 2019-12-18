@@ -262,6 +262,33 @@ class Mapper
     }
 
     /**
+     * Set middle to the route.
+     * 
+     * @param  array  $group
+     * @return Powerhouse\Routing\Mapper
+     */
+    public function middleware(array $group)
+    {
+        self::$routes[ArrayHelper::getLastIndex(self::$routes)]['middleware'] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Add new middleware.
+     * 
+     * @param  array  $group
+     * @return Powerhouse\Routing\Mapper
+     */
+    public function addMiddleware(array $group)
+    {
+        $middleware = self::$routes[ArrayHelper::getLastIndex(self::$routes)]['middleware'];
+        self::$routes[ArrayHelper::getLastIndex(self::$routes)]['middleware'] = array_merge($middleware, $group);
+
+        return $this;
+    }
+
+    /**
      * Assign the route as a named route.
      * 
      * @param  string  $name
