@@ -1,5 +1,6 @@
 <?php
 
+use Fountain\Loader\Tower;
 use Fountain\Loader\Loader;
 use Fountain\Loader\Config;
 
@@ -17,3 +18,8 @@ $loader->fireUp();
 
 // Unset the loader
 unset($loader);
+
+// Initialize the tower
+Tower::watch([
+    'exception-handler', 'web-routes', 'api-routes', 'start-routing'
+]);

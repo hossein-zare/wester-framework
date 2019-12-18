@@ -2,7 +2,7 @@
 
 namespace Fountain\Repository;
 
-class Helper
+class Repository
 {
 
     /**
@@ -31,8 +31,10 @@ class Helper
      */
     private static function getName($class)
     {
-        if (is_string($class))
-            return basename($class);
+        if (is_string($class)) {
+            // to prevent other classes with the same from colliding
+            return md5($class);
+        }
 
         return get_class($class);
     }

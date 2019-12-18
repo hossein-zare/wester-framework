@@ -6,6 +6,6 @@ return [
     'name' => 'Framework',
 
     // Debug mode
-    'debug' => false,
+    'debug' => true,
 
 ];

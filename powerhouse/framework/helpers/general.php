@@ -1,7 +1,8 @@
 <?php
 
-use Fountain\Repository\Helper;
+use Fountain\Repository\Repository;
 use Fountain\Loader\Config;
+use Powerhouse\Routing\Router;
 
 if (! function_exists('toObject')) {
     /**
@@ -29,7 +30,20 @@ if (! function_exists('config')) {
     function config($section = null)
     {
         if ($section !== null)
-            return (Helper::get(Config::class))->$section();
-        return Helper::get(Config::class);
+            return (Repository::get(Config::class))->$section();
+        return Repository::get(Config::class);
+    }
+}
+
+if (! function_exists('router')) {
+    /**
+     * Create a router instance.
+     * 
+     * @param  string  $section
+     * @return Powerhouse\Routing\Router
+     */
+    function router()
+    {
+        return Repository::get(Router::class);
     }
 }
