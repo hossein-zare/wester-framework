@@ -1,6 +1,7 @@
 {
     "name": "wester/wester",
     "type": "project",
+    "keywords": ["framework", "php", "mvc", "wester"],
     "description": "PHP MVC Framework",
     "license": "MIT",
     "authors": [
