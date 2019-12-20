@@ -9,6 +9,12 @@ return [
     'debug' => true,
 
     // The api prefix
-    'api_prefix' => 'api'
+    'api_prefix' => 'api',
 
+    // Bridges
+    'bridges' => [
+        'general' => [
+            App\Http\Bridges\DataTrimmer::class
+        ]
+    ]
 ];

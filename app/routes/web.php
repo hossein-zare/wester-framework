@@ -2,4 +2,6 @@
 
 use Powerhouse\Routing\Router;
 
-Router::get('/', 'Action->run');
+Router::get('/a/{id}', function ($request, $id) {
+    echo '\''.$request->name.'\'';
+})->pattern(['id' => '^[0-9]+$']);

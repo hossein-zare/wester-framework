@@ -2,4 +2,4 @@
 
 use Powerhouse\Routing\Router;
 
-Router::get('/', 'Action->run');
+// Router::get('/', 'Action->run');
