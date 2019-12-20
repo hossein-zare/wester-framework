@@ -9,7 +9,7 @@ class Welcome extends BaseController
 
     public function index($request, $id)
     {
-        return '1111';
+        return $id;
     }
 
 }
