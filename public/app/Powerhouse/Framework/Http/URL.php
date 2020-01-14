@@ -69,6 +69,9 @@
                 $_SERVER['SERVER_NAME']
             );
 
+            if (! in_array($_SERVER['SERVER_PORT'], [80, 443]))
+                $url.= ':' . $_SERVER['SERVER_PORT'];
+
             if ($uri !== '')
                 $uri = '/' . trim($uri, '/');
 
@@ -104,10 +107,15 @@
             if ($query === false)
                 $uri = strtok($uri, '?');
 
+            $port = '';
+            if (! in_array($_SERVER['SERVER_PORT'], [80, 443]))
+                $port = ':' . $_SERVER['SERVER_PORT'];
+
             $url = sprintf(
-                "%s://%s%s",
+                "%s://%s%s%s",
                 isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http',
                 $_SERVER['SERVER_NAME'],
+                $port,
                 $uri
             );
 
