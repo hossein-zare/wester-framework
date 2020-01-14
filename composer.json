@@ -31,7 +31,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "cd app & cd Console & @php app create:key"
+            "cd public/app & cd Console & @php app create:key"
         ]
     }
 }
