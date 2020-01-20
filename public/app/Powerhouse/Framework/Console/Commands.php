@@ -236,90 +236,90 @@
                 // Controllers
                 [
                     'source' => "Auth\\Controllers\\Auth\\ChangePassword.php",
-                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => "public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Login.php",
-                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => "public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Logout.php",
-                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => "public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Register.php",
-                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => "public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Reset.php",
-                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => "public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Verify.php",
-                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => "public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
 
                 // Models
                 [
                     'source' => "Auth\\Models\\AuthReset.php",
-                    'destination' => ".\\public\\app\\Transit\\Models\\"
+                    'destination' => "public\\app\\Transit\\Models\\"
                 ],
                 [
                     'source' => "Auth\\Models\\AuthVerification.php",
-                    'destination' => ".\\public\\app\\Transit\\Models\\"
+                    'destination' => "public\\app\\Transit\\Models\\"
                 ],
                 [
                     'source' => "Auth\\Models\\AuthSession.php",
-                    'destination' => ".\\public\\app\\Transit\\Models\\"
+                    'destination' => "public\\app\\Transit\\Models\\"
                 ],
                 [
                     'source' => "Auth\\Models\\User.php",
-                    'destination' => ".\\public\\app\\Transit\\Models\\"
+                    'destination' => "public\\app\\Transit\\Models\\"
                 ],
 
                 // Providers
                 [
                     'source' => "Auth\\Providers\\AuthServiceProvider.php",
-                    'destination' => ".\\public\\app\\Transit\\Providers\\Services\\",
+                    'destination' => "public\\app\\Transit\\Providers\\Services\\",
                     'overwrite' => true
                 ],
 
                 // Views : auth
                 [
                     'source' => "Auth\\Views\\auth\\change-password.spark.php",
-                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
+                    'destination' => "public\\app\\Resources\\Views\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\auth\\login.spark.php",
-                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
+                    'destination' => "public\\app\\Resources\\Views\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\auth\\register.spark.php",
-                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
+                    'destination' => "public\\app\\Resources\\Views\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\auth\\reset.spark.php",
-                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
+                    'destination' => "public\\app\\Resources\\Views\\auth\\"
                 ],
 
                 // Views : emails
                 [
                     'source' => "Auth\\Views\\emails\\auth\\reset.spark.php",
-                    'destination' => ".\\public\\app\\Resources\\Views\\emails\\auth\\"
+                    'destination' => "public\\app\\Resources\\Views\\emails\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\emails\\auth\\verification.spark.php",
-                    'destination' => ".\\public\\app\\Resources\\Views\\emails\\auth\\"
+                    'destination' => "public\\app\\Resources\\Views\\emails\\auth\\"
                 ]
             ];
 
             foreach ($files as $file) {
-                if (!is_dir($file['destination'])) {
+                if (! is_dir($file['destination'])) {
                     mkdir($file['destination']);
                 }
 
                 $filename = $file['destination'] . basename($file['source']);
-                if (!file_exists($filename) || (isset($file['overwrite']) && $file['overwrite'] === true)) {
+                if (! file_exists($filename) || (isset($file['overwrite']) && $file['overwrite'] === true)) {
                     copy($this->samples . $file['source'], $file['destination'] . basename($file['source']));
                 }
             }

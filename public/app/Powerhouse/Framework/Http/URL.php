@@ -66,7 +66,7 @@
             $url = sprintf(
                 "%s://%s",
                 isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http',
-                $_SERVER['SERVER_NAME']
+                strtok($_SERVER['HTTP_HOST'], ':')
             );
 
             if (! in_array($_SERVER['SERVER_PORT'], [80, 443]))
@@ -114,7 +114,7 @@
             $url = sprintf(
                 "%s://%s%s%s",
                 isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http',
-                $_SERVER['SERVER_NAME'],
+                strtok($_SERVER['HTTP_HOST'], ':'),
                 $port,
                 $uri
             );
