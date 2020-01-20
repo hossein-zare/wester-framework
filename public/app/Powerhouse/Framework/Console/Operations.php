@@ -22,9 +22,20 @@
 
             // Check the passed arguments
             $isset = isset($this->commands[$argv[1]]);
-            if ($isset === false || ($isset === true && $this->commands[$argv[1]]['argc'] !== $argc)) {
+            $error = false;
+
+            if ($isset === false)
+                $error = true;
+
+            if (! $error && $this->commands[$argv[1]]['argc'] !== $argc && (! @$this->commands[$argv[1]]['required'] || ! @$this->commands[$argv[1]]['optional']))
+                $error = true;
+
+            if (! $error && ! ($this->commands[$argv[1]]['argc'] !== $argc))
+                if ($this->commands[$argv[1]]['argc'] < $argc && $this->commands[$argv[1]]['required'] > $argc)
+                    $error = true;
+
+            if ($error)
                 $this->shutdown("Wrong arguments!", 'warning');
-            }
 
             // Run commands
             $this->commands($argv);

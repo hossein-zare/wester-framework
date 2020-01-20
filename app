@@ -7,8 +7,8 @@
     /**
      * Register classes and load required files.
      */
-    require_once('../Powerhouse/Bundles/Registrar.php');
-    require_once('../Powerhouse/Bundles/Loader.php');
+    require_once('./public/app/Powerhouse/Bundles/Registrar.php');
+    require_once('./public/app/Powerhouse/Bundles/Loader.php');
 
     use Powerhouse\Console\ConsoleApplication;
 

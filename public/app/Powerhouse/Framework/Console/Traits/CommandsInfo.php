@@ -44,6 +44,11 @@
             'create:key' => [
                 'argc' => 2
             ],
+            'runserver' => [
+                'argc' => 3,
+                'required' => 2,
+                'optional' => 1
+            ],
         ];
 
     }

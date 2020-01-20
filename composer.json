@@ -1,9 +1,11 @@
 {
     "name": "wester/wester",
     "type": "project",
-    "description": "PHP MVC Framework",
+    "description": "Wester - PHP MVC Framework",
     "keywords": [
         "framework",
+        "php",
+        "mvc",
         "wester"
     ],
     "license": "MIT",
@@ -31,7 +33,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "cd public/app & cd Console & @php app create:key"
+            "@php app create:key"
         ]
     }
 }

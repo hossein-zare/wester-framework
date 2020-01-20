@@ -3,6 +3,7 @@
     namespace Powerhouse\Console;
 
     use Powerhouse\Castles\DB;
+    use Powerhouse\Console\Console;
 
     abstract class Commands
     {
@@ -12,7 +13,7 @@
          * 
          * @var string
          */
-        protected $samples = "..\\Powerhouse\\Framework\\Console\\Samples\\";
+        protected $samples = ".\\public\\app\\Powerhouse\\Framework\\Console\\Samples\\";
 
         /**
          * The list of commands.
@@ -71,7 +72,7 @@
          */
         protected function createController($name)
         {
-            $path = "..\\Transit\\Http\\Controllers\\";
+            $path = ".\\public\\app\\Transit\\Http\\Controllers\\";
             $sample = 'Controller.sam';
             $error = "A controller has already been created with this name!\n\tPlease specify another name.";
             $success = "Controller created successfully!";
@@ -87,7 +88,7 @@
          */
         protected function createModel($name)
         {
-            $path = "..\\Transit\\Models\\";
+            $path = ".\\public\\app\\Transit\\Models\\";
             $sample = 'Model.sam';
             $error = "A model has already been created with this name!\n\tPlease specify another name.";
             $success = "Model created successfully!";
@@ -103,7 +104,7 @@
          */
         protected function createMiddleware($name)
         {
-            $path = "..\\Transit\\Http\\Middleware\\";
+            $path = ".\\public\\app\\Transit\\Http\\Middleware\\";
             $sample = 'Middleware.sam';
             $error = "A middleware has already been created with this name!\n\tPlease specify another name.";
             $success = "Middleware created successfully!";
@@ -119,7 +120,7 @@
          */
         protected function createRequest($name)
         {
-            $path = "..\\Transit\\Http\\Requests\\";
+            $path = ".\\public\\app\\Transit\\Http\\Requests\\";
             $sample = 'Request.sam';
             $error = "A request has already been created with this name!\n\tPlease specify another name.";
             $success = "Request created successfully!";
@@ -135,7 +136,7 @@
          */
         protected function createMail($name)
         {
-            $path = "..\\Transit\\Mails\\";
+            $path = ".\\public\\app\\Transit\\Mails\\";
             $sample = 'Mail.sam';
             $error = "A mail has already been created with this name!\n\tPlease specify another name.";
             $success = "Mail created successfully!";
@@ -151,7 +152,7 @@
          */
         protected function createServiceProvider($name)
         {
-            $path = "..\\Transit\\Providers\\Services\\";
+            $path = ".\\public\\app\\Transit\\Providers\\Services\\";
             $sample = 'ServiceProvider.sam';
             $error = "A Service Provider has already been created with this name!\n\tPlease specify another name.";
             $success = "Service Provider created successfully!";
@@ -170,7 +171,7 @@
          */
         protected function createEvent($name)
         {
-            $path = "..\\Transit\\Events\\";
+            $path = ".\\public\\app\\Transit\\Events\\";
             $sample = 'Event.sam';
             $error = "An event has already been created with this name!\n\tPlease specify another name.";
             $success = "Event created successfully!";
@@ -186,7 +187,7 @@
          */
         protected function createListener($name)
         {
-            $path = "..\\Transit\\Listeners\\";
+            $path = ".\\public\\app\\Transit\\Listeners\\";
             $sample = 'Listener.sam';
             $error = "A listener has already been created with this name!\n\tPlease specify another name.";
             $success = "Listener created successfully!";
@@ -203,7 +204,7 @@
         protected function deleteCaches($name)
         {
             if ($name === 'views' || $name === 'all') {
-                $files = glob("..\\Storage\\Views\\*");
+                $files = glob(".\\public\\app\\Storage\\Views\\*");
                 foreach($files as $file){
                     if(is_file($file))
                         unlink($file);
@@ -211,8 +212,8 @@
             }
 
             if ($name === 'routes' || $name === 'all') {
-                if (file_exists("..\\Storage\\Routes\\cache.json"))
-                    unlink("..\\Storage\\Routes\\cache.json");
+                if (file_exists(".\\public\\app\\Storage\\Routes\\cache.json"))
+                    unlink(".\\public\\app\\Storage\\Routes\\cache.json");
             }
 
             if ($name !== 'views' && $name !== 'routes' && $name !== 'all') {
@@ -235,80 +236,80 @@
                 // Controllers
                 [
                     'source' => "Auth\\Controllers\\Auth\\ChangePassword.php",
-                    'destination' => "..\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Login.php",
-                    'destination' => "..\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Logout.php",
-                    'destination' => "..\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Register.php",
-                    'destination' => "..\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Reset.php",
-                    'destination' => "..\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
                 [
                     'source' => "Auth\\Controllers\\Auth\\Verify.php",
-                    'destination' => "..\\Transit\\Http\\Controllers\\Auth\\"
+                    'destination' => ".\\public\\app\\Transit\\Http\\Controllers\\Auth\\"
                 ],
 
                 // Models
                 [
                     'source' => "Auth\\Models\\AuthReset.php",
-                    'destination' => "..\\Transit\\Models\\"
+                    'destination' => ".\\public\\app\\Transit\\Models\\"
                 ],
                 [
                     'source' => "Auth\\Models\\AuthVerification.php",
-                    'destination' => "..\\Transit\\Models\\"
+                    'destination' => ".\\public\\app\\Transit\\Models\\"
                 ],
                 [
                     'source' => "Auth\\Models\\AuthSession.php",
-                    'destination' => "..\\Transit\\Models\\"
+                    'destination' => ".\\public\\app\\Transit\\Models\\"
                 ],
                 [
                     'source' => "Auth\\Models\\User.php",
-                    'destination' => "..\\Transit\\Models\\"
+                    'destination' => ".\\public\\app\\Transit\\Models\\"
                 ],
 
                 // Providers
                 [
                     'source' => "Auth\\Providers\\AuthServiceProvider.php",
-                    'destination' => "..\\Transit\\Providers\\Services\\",
+                    'destination' => ".\\public\\app\\Transit\\Providers\\Services\\",
                     'overwrite' => true
                 ],
 
                 // Views : auth
                 [
                     'source' => "Auth\\Views\\auth\\change-password.spark.php",
-                    'destination' => "..\\Resources\\Views\\auth\\"
+                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\auth\\login.spark.php",
-                    'destination' => "..\\Resources\\Views\\auth\\"
+                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\auth\\register.spark.php",
-                    'destination' => "..\\Resources\\Views\\auth\\"
+                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\auth\\reset.spark.php",
-                    'destination' => "..\\Resources\\Views\\auth\\"
+                    'destination' => ".\\public\\app\\Resources\\Views\\auth\\"
                 ],
 
                 // Views : emails
                 [
                     'source' => "Auth\\Views\\emails\\auth\\reset.spark.php",
-                    'destination' => "..\\Resources\\Views\\emails\\auth\\"
+                    'destination' => ".\\public\\app\\Resources\\Views\\emails\\auth\\"
                 ],
                 [
                     'source' => "Auth\\Views\\emails\\auth\\verification.spark.php",
-                    'destination' => "..\\Resources\\Views\\emails\\auth\\"
+                    'destination' => ".\\public\\app\\Resources\\Views\\emails\\auth\\"
                 ]
             ];
 
@@ -346,7 +347,7 @@
             $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@#%&*?!^()';
             $key = substr(str_shuffle($permitted_chars), 0, 16);
 
-            $file = "..\\Config\\Web.php";
+            $file = ".\\public\\app\\Config\\Web.php";
             $data = file_get_contents($file);
             $data = preg_replace_callback('/\$config\[(\'|")key\1\](.+);/', function ($match) use ($key) {
                 return '$config[\'key\'] = \''. $key .'\';';
@@ -355,5 +356,22 @@
             file_put_contents($file, $data);
             
             $this->shutdown("The application key has been generated!", 'green');
+        }
+
+        /**
+         * Run server.
+         */
+        protected function runServer($port = 8000)
+        {
+            $this->publish(Console::green(" Server started: http://localhost:{$port} ", 'light_gray', 'reverse'));
+            $this->publish(Console::dim(' Version: 1.0', 'blink'));
+            $this->publish(Console::dim(' Docs:    https://framework.wester.ir/docs/1.0', 'blink'));
+            $this->publish(Console::dim(' Issues:  https://github.com/hossein-zare/wester/issues', 'blink'). "\n");
+            $this->publish(Console::blue(' Note: ', 'light_gray', 'reverse'));
+            $this->publish("This web server was designed to aid application development.", 'warning');
+            $this->publish("It is not intended to be a full-featured web server.", 'warning');
+            $this->publish("It should not be used on a public network.\n", 'warning');
+            
+            passthru("php -S 0.0.0.0:{$port} -t public");
         }
     }

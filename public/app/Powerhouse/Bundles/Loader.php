@@ -3,7 +3,7 @@
     if (CONSOLE === FALSE)
         $loader_prefix = './app';
     else
-        $loader_prefix = '..';
+        $loader_prefix = './public/app';
         
     require_once("{$loader_prefix}/Wester.php");
     require_once("{$loader_prefix}/Config/Web.php");
